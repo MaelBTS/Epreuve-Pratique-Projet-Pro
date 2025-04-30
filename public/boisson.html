@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boissons</title>
+    <link rel="stylesheet" href="boisson.css">
+</head>
+<body>
+    <!-- Contenu de la sidebar avec le menu en haut -->
+    <div class="sidebar">
+        <nav>
+            <a href="index.html" class="back-button">Deconnexion</a>
+            <a href="consultation.html" class="menu-button">Consultation</a>
+            <a href="boisson.html" class="menu-button">Boissons</a>
+            <a href="nourriture.html" class="menu-button">Nourriture</a>
+            
+        </nav>
+
+        <div class="sidebar-content">
+            <div class="cart">
+                <h2>Panier :</h2>
+                <ul id="cart-list"></ul>
+                <div id="total"></div>
+        
+                <div class="payment-buttons">
+                    <button id="btn-carte" onclick="choisirPaiement('carte')">Carte</button>
+                    <button id="btn-liquide" onclick="choisirPaiement('liquide')">Liquide</button>
+                </div>
+        
+                <button id="valider-panier" onclick="validerPanier()">Valider la commande</button>
+                
+                <div id="error-message" style="color: red;"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="main-content">
+        <main>
+            <div class="boisson-container">
+                <h1>Caution</h1>
+                <div class="categorie">
+                <div class="boisson" onclick="ajouterAuPanier('Caution +')">
+                    <img src="img/verre-vert.png" alt="caution+">
+                    <p>Caution verre +</p>
+                    <p><span>€1.00</span></p>
+                </div>
+
+                <div class="boisson" onclick="ajouterAuPanier('Caution -')">
+                    <img src="img/verre-rouge.png" alt="caution-">
+                    <p>Caution verre -</p>
+                    <p><span>€-1.00</span></p>
+                </div>
+                </div>
+                
+                <h1>Pression</h1>
+                <div class="categorie">
+                    <div class="boisson" onclick="ajouterAuPanier('Blondinette')">
+                        <img src="img/tete-blondinette.png" alt="Blondinette">
+                        <p>Blondinette</p>
+                        <p><span>€4.00</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('IPA')">
+                        <img src="img/tete_ipa.png" alt="IPA">
+                        <p>IPA</p>
+                        <p><span>€4.00</span></p>
+                    </div>
+                     <div class="boisson" onclick="ajouterAuPanier('Blondinette Pinte')">
+                        <img src="img/tete-blondinette.png" alt="Blondinette Pinte">
+                        <p>Blondinette Pinte</p>
+                        <p><span>€7.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('IPA Pinte')">
+                        <img src="img/tete_ipa.png" alt="IPA Pinte">
+                        <p>IPA Pinte</p>
+                        <p><span>€7.50</span></p>
+                    </div>
+                </div>
+
+                <h1>Boissons</h1>
+                <div class="categorie">
+                    <div class="boisson" onclick="ajouterAuPanier('Coca-Cola')">
+                        <img src="img/cocacola.png" alt="Coca-Cola">
+                        <p>Coca-Cola</p>
+                        <p><span>€2.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Fanta')">
+                        <img src="img/fanta.png" alt="Fanta">
+                        <p>Fanta</p>
+                        <p><span>€2.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Icetea')">
+                        <img src="img/icetea.png" alt="Icetea">
+                        <p>Icetea</p>
+                        <p><span>€2.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Perrier')">
+                        <img src="img/perier.png" alt="Perier">
+                        <p>Perrier</p>
+                        <p><span>€2.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Diabolo')">
+                        <img src="img/diabolo.png" alt="Diabolo">
+                        <p>Diabolo</p>
+                        <p><span>€2.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Gngerbeer')">
+                        <img src="img/gngerbeer.png" alt="Gngerbeer">
+                        <p>Gingerbeer</p>
+                        <p><span>€4.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Limonade')">
+                        <img src="img/limonade.png" alt="Limonade">
+                        <p>Limonade</p>
+                        <p><span>€2.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Sirop')">
+                        <img src="img/sirop.png" alt="Sirop">
+                        <p>Sirop</p>
+                        <p><span>€1.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Eau 50')">
+                        <img src="img/eau.png" alt="Eau 50">
+                        <p>Eau 50</p>
+                        <p><span>€1.00</span></p>
+                    </div>
+                </div>
+
+                <h1>Bière en bouteille</h1>
+                <div class="categorie">
+                    <div class="boisson" onclick="ajouterAuPanier('Blanche neige')">
+                        <img src="img/blanche-neige-bouteille.png" alt="Blanche_neige">
+                        <p>Blanche neige</p>
+                        <p><span>€5.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Waplé')">
+                        <img src="img/walpée-bouteille.png" alt="Waplé">
+                        <p>Walpé</p>
+                        <p><span>€5.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Lapin perdu')">
+                        <img src="img/lapin-perdu-bouteille.png" alt="Lapin_perdu">
+                        <p>Lapin perdu</p>
+                        <p><span>€5.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Drac vador')">
+                        <img src="img/Drac-Vador-bouteille.png" alt="Drac_vador">
+                        <p>Drac vador</p>
+                        <p><span>€5.50</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Biere du jour')">
+                        <img src="img/bieremystere.png" alt="jour">
+                        <p>Biere du jour</p>
+                        <p><span>€5.50</span></p>
+                    </div>
+                </div>
+
+                <h1>Vins</h1>
+                <div class="categorie">
+                    <div class="boisson" onclick="ajouterAuPanier('Vin rouge')">
+                        <img src="img/vinrouge.png" alt="Vin_rouge">
+                        <p>Vin rouge</p>
+                        <p><span>€4.00</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Vin blanc')">
+                        <img src="img/vinblanc.png" alt="Vin_blanc">
+                        <p>Vin blanc</p>
+                        <p><span>€4.00</span></p>
+                    </div>
+                    <div class="boisson" onclick="ajouterAuPanier('Rosé')">
+                        <img src="img/rose.png" alt="Rosé">
+                        <p>Rosé</p>
+                        <p><span>€4.00</span></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Ajouter Firebase SDK avant la fermeture du body -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+
+    <script>
+        // Config Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBGoYpmTuglRwxcCfUkd6XWPXkkWHBdfJw",
+            authDomain: "lapetitebulle0.firebaseapp.com",
+            projectId: "lapetitebulle0",
+            storageBucket: "lapetitebulle0.appspot.com",
+            messagingSenderId: "886259840912",
+            appId: "1:886259840912:web:9b2bf2c260205af05d6515"
+        };
+    
+        // Initialisation de Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    
+        // Initialisation du panier à partir du localStorage
+        let panier = JSON.parse(localStorage.getItem('panier')) || {};
+        let prix = {
+            'Blondinette': 4.0,
+            'IPA': 4.0,
+            'Blondinette Pinte': 7.5,
+            'IPA Pinte': 7.5,
+            'Coca-Cola': 2.5,
+            'Fanta': 2.5,
+            'Icetea': 2.5,
+            'Perrier': 2.5,
+            'Diabolo': 2.5,
+            'Gngerbeer': 4.5,
+            'Limonade': 2.5,
+            'Sirop': 1.5,
+            'Eau 50': 1.0,
+            'Blanche neige': 5.5,
+            'Waplé': 5.5,
+            'Lapin perdu': 5.5,
+            'Drac vador': 5.5,
+            'Biere du jour': 5.5,
+            'Vin rouge': 4.0,
+            'Vin blanc': 4.0,
+            'Rosé': 4.0,
+            'Planche saussisson': 8.0,
+            'Planche fromage': 6.0,
+            'Planche terrine': 10.0,
+            'Caution +': 1.0,
+            'Caution -': -1.0,
+        };
+    
+        // Fonction pour afficher les erreurs sur la page
+        function afficherErreur(message) {
+            let errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.textContent = message;
+            errorMessageElement.style.display = 'block'; // Affiche le message d'erreur
+        }
+    
+        // Fonction pour ajouter un produit au panier
+        function ajouterAuPanier(boisson) {
+            if (panier[boisson]) {
+                panier[boisson] += 1;
+            } else {
+                panier[boisson] = 1;
+            }
+            localStorage.setItem('panier', JSON.stringify(panier));
+            mettreAJourPanier();
+        }
+    
+        // Fonction pour mettre à jour le panier à l'écran
+        function mettreAJourPanier() {
+            let cartList = document.getElementById('cart-list');
+    
+            if (!cartList) {
+                afficherErreur("Erreur : L'élément 'cart-list' est introuvable dans le DOM !");
+                return;
+            }
+    
+            cartList.innerHTML = '';
+            let total = 0;
+            for (let boisson in panier) {
+                let li = document.createElement('li');
+                li.innerHTML = `${boisson} : ${panier[boisson]} <span class="quantity">
+                    <button onclick="modifierQuantite('${boisson}', -1)">-</button> 
+                    <span>${panier[boisson]}</span> 
+                    <button onclick="modifierQuantite('${boisson}', 1)">+</button></span>`;
+                cartList.appendChild(li);
+                total += panier[boisson] * prix[boisson];
+            }
+            document.getElementById('total').textContent = `Total: €${total.toFixed(2)}`;
+        }
+    
+        // Fonction pour modifier la quantité dans le panier
+        function modifierQuantite(boisson, changement) {
+            if (panier[boisson]) {
+                panier[boisson] += changement;
+                if (panier[boisson] <= 0) {
+                    delete panier[boisson];
+                }
+                localStorage.setItem('panier', JSON.stringify(panier));
+                mettreAJourPanier();
+            } else {
+                afficherErreur(`Erreur : La boisson ${boisson} n'existe pas dans le panier.`);
+            }
+        }
+    
+        // Fonction pour valider la commande et envoyer à Firebase
+        function validerPanier() {
+            const total = document.getElementById('total').textContent;
+            const panierDetails = panier;
+    
+            if (Object.keys(panierDetails).length === 0) {
+                afficherErreur("Erreur : Votre panier est vide !");
+                return;
+            }
+    
+            if (!paiementSelectionne) {
+                afficherErreur("Erreur : Veuillez choisir un mode de paiement !");
+                return;
+            }
+    
+            const commande = {
+                panier: panierDetails,
+                total: total,
+                paiement: paiementSelectionne, // Ajout du mode de paiement
+                date: new Date().toISOString(),
+            };
+    
+            envoyerCommandeFirebase(commande)
+                .then(() => {
+                    afficherErreur(""); // Cacher le message d'erreur si la commande réussie
+                    alert("Commande validée et envoyée à Firebase!");
+                    localStorage.removeItem('panier');
+                    panier = {};
+                    mettreAJourPanier();
+                })
+                .catch((error) => {
+                    afficherErreur("Erreur lors de l'envoi de la commande à Firebase !");
+                    console.error("Erreur lors de l'envoi de la commande : ", error);
+                });
+        }
+    
+        // Fonction pour envoyer la commande à Firebase
+        function envoyerCommandeFirebase(commande) {
+            return db.collection("commandes").add(commande);
+        }
+    
+        // Charger le panier au démarrage de la page
+        document.addEventListener('DOMContentLoaded', () => {
+            mettreAJourPanier();
+        });
+    
+        let paiementSelectionne = null;
+    
+        // Fonction pour choisir le mode de paiement
+        function choisirPaiement(type) {
+            const btnCarte = document.getElementById("btn-carte");
+            const btnLiquide = document.getElementById("btn-liquide");
+    
+            if (type === "carte") {
+                paiementSelectionne = "carte";
+                btnCarte.classList.add("selected");
+                btnLiquide.classList.remove("selected");
+            } else {
+                paiementSelectionne = "liquide";
+                btnLiquide.classList.add("selected");
+                btnCarte.classList.remove("selected");
+            }
+        }
+        
+// Vérification si l'utilisateur est connecté
+auth.onAuthStateChanged((user) => {
+    if (!user) {
+        // Si l'utilisateur n'est pas connecté, redirige vers la page de connexion
+        window.location.href = "connexion.html";  // Redirige vers la page de connexion
+    } else {
+        // L'utilisateur est connecté, tu peux charger la page normalement
+        console.log("Utilisateur connecté : ", user.email);
+    }
+});
+ 
+
+    </script>    
+
+<script>
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+            // Si l'utilisateur n'est pas connecté, le rediriger
+            window.location.href = "index.html";
+        }
+    });
+</script>
+
+</body>
+</html>
