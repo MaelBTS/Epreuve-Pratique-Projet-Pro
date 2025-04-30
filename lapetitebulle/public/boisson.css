@@ -1,0 +1,257 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f8d4b7;
+}
+
+
+.sidebar {
+    width: 350px; 
+    height: 100vh;
+    background-color: #ecae7b;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar nav {
+    position: relative;
+    top: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 15px;
+    margin: 8px 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.sidebar nav a:hover {
+    background-color: #eda66b;
+}
+
+/* CONTENU PRINCIPAL */
+.main-content {
+    margin-left: 380px; /* Ajusté avec la nouvelle largeur de la sidebar */
+    padding: 20px;
+    width: calc(100% - 380px);
+}
+
+.boisson-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.categorie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.boisson {
+    background-color: #fff;
+    width: 200px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.boisson img {
+    width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.boisson p {
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin: 5px 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+
+/* PANIER */
+.cart {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Réduit la largeur à 80% de la sidebar */
+    height: auto;
+    max-height: calc(100vh - 150px); /* Ne dépasse pas l'écran */
+    overflow-y: auto;
+    margin: 10px auto;
+   
+}
+
+
+.cart h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: black;
+    border-bottom: 2px solid #ecae7b;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* LISTE DES ARTICLES DANS LE PANIER */
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    color: black; /* Police en noir */
+}
+
+/* TOTAL */
+#total {
+    font-size: 1.3em;
+    color: black; /* Police en noir */
+    padding-top: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* BOUTON VALIDER */
+#valider-panier {
+    background-color: #ecae7b;
+    color: black;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+#valider-panier:hover {
+    background-color: #f39c12;
+}
+
+/* MESSAGES D'ERREUR */
+#error-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: red;
+    font-weight: bold;
+}
+
+/* BOUTONS DE PAIEMENT */
+.payment-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.payment-buttons button {
+    flex: 1;
+    background-color: white;
+    color: #333;
+    border: 2px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.payment-buttons button.selected {
+    background-color: #ecae7b;
+    color: white;
+    border-color: #ecae7b;
+}
+
+.payment-buttons button:hover {
+    background-color: #ecae7b;
+}
+
+/* COMPTEUR DE VERRES */
+.glass-counter {
+    margin: 10px 0;
+}
+
+.glass-counter label {
+    font-size: 18px;
+    margin-right: 10px;
+    color: black;
+}
+
+.glass-counter input {
+    width: 60px;
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: black;
+}
+
+.nbverre {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.nbverre label {
+    font-weight: bold;
+}
+
+.nbverre input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.nbverre input:focus {
+    border-color: #ecae7b;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
